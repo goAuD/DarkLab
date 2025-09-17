@@ -7,7 +7,7 @@
 
 ---
 
-## Introduction – Who I am and what this project is about
+## Introduction - Who I am and what this project is about
 
 My name is Viktor Halupka, I was born in Budapest, and I have been living in Austria since 2014.  
 Since my childhood (Commodore 64), I have been interested in the world of IT, but I worked in the gastronomy industry for a long time.  
@@ -32,7 +32,7 @@ This is not a perfectly sterile lab, but rather a fine worked, dynamically evolv
 
 ## 🧠 About TrustMindLab
 
-This repository is not only a documentation archive — it is a **personal DevSecOps sandbox**, where I work on:
+This repository is not only a documentation archive - it is a **personal DevSecOps sandbox**, where I work on:
 
 - zero-trust networking concepts  
 - secure remote access strategies  
@@ -43,7 +43,7 @@ This repository is not only a documentation archive — it is a **personal DevSe
 - VPN & subnet routing (Tailscale, etc.)  
 - Homelab automation, scripts, and cron jobs  
 
-I document everything I build and test — including missteps, debugging processes, insights, and solutions. Every script, markdown, or log analysis here reflects real work done on real hardware, under real conditions.
+I document everything I build and test - including missteps, debugging processes, insights, and solutions. Every script, markdown, or log analysis here reflects real work done on real hardware, under real conditions.
 
 ---
 
@@ -88,7 +88,7 @@ The repository is divided into logical sections:
 
 ## 📣 Final words
 
-This lab is **not a showcase — it’s a journey.**  
+This lab is **not a showcase - it’s a journey.**  
 If you're reading this, you're already part of it.  
 
 And if you're building something similar:  
