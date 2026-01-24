@@ -19,7 +19,7 @@ And in the darkness bind them.
 
 pfSense Dashboard Snapshot:
 
-<img src="../../assets/img/pfsense-dashboard.png" alt="pfsense" width="450">
+<img src="https://raw.githubusercontent.com/goAuD/TrustMindLab/main/assets/img/pfsense-dashboard.png" alt="pfsense" width="450">
 
 ---
 
