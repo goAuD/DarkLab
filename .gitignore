@@ -1,36 +1,36 @@
-# Windows-specifikus
+# System files
 Thumbs.db
 ehthumbs.db
 Desktop.ini
 
-# macOS-specifikus
+# macOS
 .DS_Store
 
 # Linux/Unix
 .cache
 *.swp
 
-# Általános mentések, ideiglenes fájlok
+# Temporary and backup files
 *.bak
 *.tmp
 *.log
 *.old
 
-# Git auto-merge maradvány
+# Git auto-merge leftovers
 *.orig
 
-# Editorok által generált fájlok
+# Editor generated files
 *.sublime-workspace
 *.sublime-project
 .vscode/
 .idea/
 
-# Python (ha később scriptelsz)
+# Python (for future scripts)
 __pycache__/
 *.pyc
 *.pyo
 
-# Archivált fájlok és mentések – NE pushold
+# Archived files - do not push
 archive/
 
 # Archives / exports
