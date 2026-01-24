@@ -3,6 +3,7 @@
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Status](https://img.shields.io/badge/status-active-success)
 ![Focus](https://img.shields.io/badge/focus-homelab-informational)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Viktor_Halupka-blue?logo=linkedin)](https://www.linkedin.com/in/viktor-halupka-weiz)
 
 Welcome to the TrustMindLab Project!
 
