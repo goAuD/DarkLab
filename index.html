@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>TrustMindLab - DevSecOps HomeLab Documentation</title>
     <meta name="description" content="A personal DevSecOps sandbox and homelab documentation project.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧪</text></svg>">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css">
@@ -30,6 +30,43 @@
         .cover h1 {
             color: #58a6ff !important;
         }
+
+        /* Mobile responsive fixes */
+        @media screen and (max-width: 768px) {
+            .markdown-section {
+                padding: 15px;
+                max-width: 100%;
+            }
+            
+            .markdown-section table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+            
+            .markdown-section pre {
+                overflow-x: auto;
+                padding: 10px;
+            }
+            
+            .markdown-section code {
+                word-break: break-word;
+            }
+            
+            .markdown-section img {
+                max-width: 100%;
+                height: auto;
+            }
+            
+            .sidebar {
+                padding-top: 20px;
+            }
+            
+            body {
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        }
     </style>
 </head>
 
@@ -43,6 +80,7 @@
             subMaxLevel: 2,
             coverpage: true,
             auto2top: true,
+            relativePath: true,
             search: {
                 placeholder: 'Search...',
                 noData: 'No results',
