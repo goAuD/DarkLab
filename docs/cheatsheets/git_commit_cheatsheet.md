@@ -1,16 +1,16 @@
-# ✍️ Git Commit Message Template Guide
+# Git Commit Message Template Guide
 
 This file explains how to set up and use a global Git commit message template on Windows.
 
 ---
 
-## 📦 What is a commit message template?
+## What is a commit message template?
 
 A commit template helps you stay consistent with your commit messages by pre-filling a structure when you run `git commit`.
 
 ---
 
-## 🧭 Your setup (as used on this system):
+## Your setup (as used on this system):
 
 You have your template stored at:
 
@@ -20,7 +20,7 @@ C:\Users\bigda\gitmessage.txt
 
 ---
 
-## ✅ How to enable it globally
+## How to enable it globally
 
 Run this command in PowerShell or Git Bash:
 
@@ -32,7 +32,7 @@ This sets the file as the default template for all your Git repositories on this
 
 ---
 
-## 🧪 How to test it
+## How to test it
 
 1. Go into any Git repo (e.g. DarkLab):
 
@@ -50,7 +50,7 @@ git commit
 
 ---
 
-## ❌ If you want to disable it later
+## If you want to disable it later
 
 ```bash
 git config --global --unset commit.template
@@ -58,7 +58,7 @@ git config --global --unset commit.template
 
 ---
 
-## ⚠️ Important:
+## Important:
 
 - The template will **not be used** if you use `-m`, like this:
 
@@ -70,7 +70,7 @@ Only `git commit` without `-m` will trigger the template.
 
 ---
 
-## 🙌 Tip
+## Tip
 
 You can version your `.gitmessage.txt` file by keeping it in a synced repo (like `DarkLab`), and pointing your config there instead:
 

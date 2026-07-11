@@ -21,13 +21,13 @@ Client = you, standing in line
 
 ## Basic Concepts
 
-- **KDC** – Key Distribution Center (2 parts):
-  - **AS** – Authentication Server
-  - **TGS** – Ticket Granting Server
-- **TGT** – Ticket Granting Ticket
-- **ST** – Service Ticket
-- **Principal** – anyone or anything that wants to log in (user, service)
-- **Realm** – Kerberos domain (e.g., `MYDOMAIN.LOCAL`)
+- **KDC** - Key Distribution Center (2 parts):
+  - **AS** - Authentication Server
+  - **TGS** - Ticket Granting Server
+- **TGT** - Ticket Granting Ticket
+- **ST** - Service Ticket
+- **Principal** - anyone or anything that wants to log in (user, service)
+- **Realm** - Kerberos domain (e.g., `MYDOMAIN.LOCAL`)
 
 ---
 
@@ -44,7 +44,7 @@ Client = you, standing in line
 
 ---
 
-## Authentication Process – 5 Steps
+## Authentication Process - 5 Steps
 
 1. **User login → KDC/AS**
    → `username + timestamp` →

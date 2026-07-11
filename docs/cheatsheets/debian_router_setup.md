@@ -1,4 +1,4 @@
-# Debian Router Setup – Security HomeLab
+# Debian Router Setup - Security HomeLab
 
 ![Platform](https://img.shields.io/badge/platform-debian-red)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)

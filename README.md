@@ -28,7 +28,7 @@ This is not a perfectly sterile lab, but rather a fine worked, dynamically evolv
 - help other beginners who are starting a similar journey, and
 - convince my future employer that they are dealing with a motivated, eager-to-learn, and practical-minded person.
 
-**It's never too late to change direction – the only thing that matters is that you take the first step.**
+**It's never too late to change direction - the only thing that matters is that you take the first step.**
 
 ---
 

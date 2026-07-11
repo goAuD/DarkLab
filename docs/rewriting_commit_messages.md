@@ -1,17 +1,17 @@
-# GitHub Web UI Workaround – Rewriting Commit Messages for Image Files
+# GitHub Web UI Workaround - Rewriting Commit Messages for Image Files
 
 **Author:** Viktor Halupka  
 **Project:** DarkLab  
 **Date:** 14-07-2025
 
-[![Join the TrustMindLab Discussions](https://img.shields.io/badge/💬_Join-TrustMindLab-blueviolet)](https://github.com/goAuD/MyHomeLab/discussions/1)  
+[![Join the TrustMindLab Discussions](https://img.shields.io/badge/Join-TrustMindLab-blueviolet)](https://github.com/goAuD/MyHomeLab/discussions/1)  
 <div class="badge-base LI-profile-badge" data-locale="hu_HU" data-size="medium" data-theme="light" data-type="VERTICAL" data-vanity="viktor-halupka-weiz" data-version="v1">
   <a class="badge-base__link LI-simple-link" href="https://at.linkedin.com/in/viktor-halupka-weiz?trk=profile-badge">Viktor Halupka</a>
 </div>
 
 ---
 
-## 📌 Purpose
+## Purpose
 
 In Git, commit messages cannot be edited retroactively via GitHub Web UI. However, for clarity and professional polish, it's sometimes useful to clean up meaningless or misleading commit messages—especially for uploaded assets like screenshots.
 
@@ -19,9 +19,9 @@ This document outlines a clever and safe workaround to rewrite commit messages *
 
 ---
 
-## 🔁 Method: Rename + Restore Strategy
+## Method: Rename + Restore Strategy
 
-### 🧠 Idea:
+### Idea:
 
 GitHub shows only the **last commit** related to a file. If you:
 
@@ -31,10 +31,10 @@ you get a new commit entry — where you can write a clean, meaningful commit me
 
 ---
 
-## ✅ Step-by-Step
+## Step-by-Step
 
 1. Go to the image file in the GitHub Web UI.
-2. Click the pencil icon (✏️) to enter "Edit this file" mode.
+2. Click the pencil icon () to enter "Edit this file" mode.
 3. Change the file name slightly, e.g.:
 
    - ssh_fedora_to_win.png → ssh_fedora_to_win_1.png
@@ -57,7 +57,7 @@ you get a new commit entry — where you can write a clean, meaningful commit me
 
 ---
 
-## 💡 Result
+## Result
 
 - The **image file name stays the same**.
 - The **latest commit message becomes useful and descriptive**.
@@ -66,7 +66,7 @@ you get a new commit entry — where you can write a clean, meaningful commit me
 
 ---
 
-## 🛠️ Tip
+## Tip
 
 If you plan to do this for many files, keep a checklist like:
 
@@ -78,7 +78,7 @@ If you plan to do this for many files, keep a checklist like:
 
 ---
 
-## 👏 Credits
+## Credits
 
 Idea and execution by Viktor Halupka using GitHub Web UI only —  
 no terminal, no rebase, no risk.  

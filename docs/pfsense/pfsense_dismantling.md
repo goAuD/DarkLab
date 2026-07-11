@@ -1,13 +1,13 @@
-# pfSense Dismantling – Session Log 2025_07_08
+# pfSense Dismantling - Session Log 2025_07_08
 
-[![Join the TrustMindLab Discussions](https://img.shields.io/badge/💬_Join-TrustMindLab-blueviolet)](https://github.com/goAuD/MyHomeLab/discussions/1)
+[![Join the TrustMindLab Discussions](https://img.shields.io/badge/Join-TrustMindLab-blueviolet)](https://github.com/goAuD/MyHomeLab/discussions/1)
 <div class="badge-base LI-profile-badge" data-locale="hu_HU" data-size="medium" data-theme="light" data-type="VERTICAL" data-vanity="viktor-halupka-weiz" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://at.linkedin.com/in/viktor-halupka-weiz?trk=profile-badge">Viktor Halupka</a></div>
 
 **Context**: This log documents the final week of testing and decommissioning of pfSense in a HomeLab environment. It contains firewall rule changes, NAT settings, Tailscale testing, Docker diagnostics, and the reasoning behind abandoning pfSense due to persistent instability.
 
 ---
 
-## ✅ Initial Setup and Tests
+## Initial Setup and Tests
 
 ## WAN Interface manually configured
 
@@ -33,7 +33,7 @@
 
 ---
 
-## ❌ Persistent Issues Encountered
+## Persistent Issues Encountered
 
 **Tailscale instability**:
 
@@ -71,7 +71,7 @@
 
 ---
 
-## 🔥 Decision: Decommissioning pfSense
+## Decision: Decommissioning pfSense
 
 > "The pfSense-based firewall was powerful but overcomplicated for current needs."
 
@@ -91,7 +91,7 @@
 
 ---
 
-## 💡 Next Steps (Planned)
+## Next Steps (Planned)
 
 - Possibly revisit **WireGuard** in the future for secure remote access.
 
@@ -101,7 +101,7 @@
 
 ---
 
-## 📌 Status
+## Status
 
 - pfSense officially removed.  
 
@@ -113,7 +113,7 @@
 
 ## Final Conclusions and Reasons Behind the Decision
 
-## 1. Stability Issues – Continuous Overheating
+## 1. Stability Issues - Continuous Overheating
 
 The old HP laptop (from 2017, AMD A9-9410, 2 cores) turned out to be underpowered and prone to overheating, which led to system instability.
 
@@ -121,7 +121,7 @@ Due to thermal issues, the system would occasionally slow down or crash entirely
 
 ---
 
-## 2. Network Interruptions – USB-LAN Adapter Instability
+## 2. Network Interruptions - USB-LAN Adapter Instability
 
 The pfSense WAN interface was running via a USB Ethernet adapter (AX88179 chipset), which frequently disconnected from the system (link down/up events).
 
@@ -139,7 +139,7 @@ This type of instability was outside the system’s control and difficult to mit
 
 ---
 
-## 4. Tailscale Performance – Stable but Not a Hardware Firewall Replacement
+## 4. Tailscale Performance - Stable but Not a Hardware Firewall Replacement
 
 Tailscale VPN continues to work flawlessly across all clients, which is great.
 

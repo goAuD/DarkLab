@@ -1,6 +1,6 @@
-# 🔧 pfSense CPU Optimalization (Low-Performance Hardware)
+# pfSense CPU Optimalization (Low-Performance Hardware)
 
-[![Join the TrustMindLab Discussions](https://img.shields.io/badge/💬_Join-TrustMindLab-blueviolet)](https://github.com/goAuD/MyHomeLab/discussions/1)
+[![Join the TrustMindLab Discussions](https://img.shields.io/badge/Join-TrustMindLab-blueviolet)](https://github.com/goAuD/MyHomeLab/discussions/1)
 <div class="badge-base LI-profile-badge" data-locale="hu_HU" data-size="medium" data-theme="light" data-type="VERTICAL" data-vanity="viktor-halupka-weiz" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://at.linkedin.com/in/viktor-halupka-weiz?trk=profile-badge">Viktor Halupka</a></div>
 
 ---
@@ -9,7 +9,7 @@ My pfSense system runs on an older AMD dual-core laptop (2017 or older), so mini
 
 ---
 
-## ✅ System tunables (under **System > Advanced > System Tunables**)
+## System tunables (under **System > Advanced > System Tunables**)
 
 The following values are either already optimized in pfSense 2.8.0 or can be explicitly checked and set:
 
@@ -27,7 +27,7 @@ The following values are either already optimized in pfSense 2.8.0 or can be exp
 
 ---
 
-## ❌ Disable unnecessary services (in **Services** or **Interfaces** sections)
+## Disable unnecessary services (in **Services** or **Interfaces** sections)
 
 You should disable features you don't actively use:
 
@@ -43,7 +43,7 @@ You should disable features you don't actively use:
 
 ---
 
-## 💡 Additional Suggestions
+## Additional Suggestions
 
 - Disable unused **interfaces** and **bridges**.
 
@@ -57,11 +57,11 @@ You should disable features you don't actively use:
 
 These optimizations have significantly reduced random CPU spikes and unnecessary ARP traffic in my home lab. Stability and responsiveness improved especially under typical loads (streaming, LAN routing, Plex, Tailscale, etc.).
 
-> **🔄 Keeping pfSense and FreeBSD Updated (The Safe Way)**
+> **Keeping pfSense and FreeBSD Updated (The Safe Way)**
 
 ---
 
-## ❓ Should You Manually Update FreeBSD on pfSense?
+## Should You Manually Update FreeBSD on pfSense?
 
 **No — never update FreeBSD manually on a pfSense system.**  
 Although pfSense is based on FreeBSD, it's a heavily customized and integrated system. Manual updates using tools like `freebsd-update` or `pkg upgrade` can break critical components of pfSense, such as:
@@ -74,7 +74,7 @@ Although pfSense is based on FreeBSD, it's a heavily customized and integrated s
 
 ---
 
-## ✅ How to Properly Update pfSense (and FreeBSD)
+## How to Properly Update pfSense (and FreeBSD)
 
 > **Always use the **built-in pfSense update mechanism** to ensure compatibility and stability.**
 
@@ -98,9 +98,9 @@ Although pfSense is based on FreeBSD, it's a heavily customized and integrated s
 
 ---
 
-### 📅 How Often Should You Update?
+### How Often Should You Update?
 
-- **Every 2–3 months**: Check for new versions manually
+- **Every 2-3 months**: Check for new versions manually
 
 - **Immediately** if a **security update** is announced
 
@@ -108,7 +108,7 @@ Although pfSense is based on FreeBSD, it's a heavily customized and integrated s
 
 ---
 
-### 🛑 Do *NOT* Run These Commands on pfSense
+### Do *NOT* Run These Commands on pfSense
 
 ```sh
 freebsd-update fetch

@@ -1,6 +1,6 @@
-# 🔁 SSH Cross Access Fedora ↔ Windows 11 Pro
+# SSH Cross Access Fedora ↔ Windows 11 Pro
 
-[![Join the TrustMindLab Discussions](https://img.shields.io/badge/💬_Join-TrustMindLab-blueviolet)](https://github.com/goAuD/MyHomeLab/discussions/1)  
+[![Join the TrustMindLab Discussions](https://img.shields.io/badge/Join-TrustMindLab-blueviolet)](https://github.com/goAuD/MyHomeLab/discussions/1)  
 <div class="badge-base LI-profile-badge" data-locale="hu_HU" data-size="medium" data-theme="light" data-type="VERTICAL" data-vanity="viktor-halupka-weiz" data-version="v1">
   <a class="badge-base__link LI-simple-link" href="https://at.linkedin.com/in/viktor-halupka-weiz?trk=profile-badge">Viktor Halupka</a>
 </div>
@@ -9,13 +9,13 @@
 
 The goal: establish secure, key-based SSH access between two devices running different operating systems, **in both directions**.
 
-✍️ Author: Viktor Halupka  
-🗓️ Updated: 14-07-2025  
-📄 Version: v1.0
+Author: Viktor Halupka  
+Updated: 14-07-2025  
+Version: v1.0
 
 ---
 
-## 🖧 Topology
+## Topology
 
 ```ini
 MSI Laptop (Fedora 40)
@@ -25,7 +25,7 @@ Windows 11 Pro PC
 
 ---
 
-## ⚙️ Environment Overview
+## Environment Overview
 
 | Component            | Fedora (MSI laptop) | Windows 11 Pro (PC) |
 |---------------------|---------------------|----------------------|
@@ -37,7 +37,7 @@ Windows 11 Pro PC
 
 ---
 
-## 🧩 Prerequisites
+## Prerequisites
 
 ### Fedora side (MSI laptop)
 
@@ -54,7 +54,7 @@ Windows 11 Pro PC
 
 ---
 
-## 🚀 Fedora → Windows (SSH from Fedora)
+## Fedora → Windows (SSH from Fedora)
 
 ### 1. Generate SSH key on Fedora
 
@@ -91,11 +91,11 @@ New-Item -Path "$env:USERPROFILE\.ssh\authorized_keys" -ItemType File -Force
 ssh -p PORTXXXX goaud@192.168.X.X
 ```
 
-✅ Success: You should log in **without being prompted for a password**.
+Success: You should log in **without being prompted for a password**.
 
 ---
 
-## 🔁 Windows → Fedora (Reverse SSH)
+## Windows → Fedora (Reverse SSH)
 
 ### 1. Generate SSH key on Windows
 
@@ -139,26 +139,26 @@ sudo systemctl restart sshd
 ssh -p 2222 goaud@192.168.X.X
 ```
 
-✅ You should log in without password.
+You should log in without password.
 
 ---
 
-## 🖼️ Screenshot: Cross SSH Test
+## Screenshot: Cross SSH Test
 
 <img src="https://raw.githubusercontent.com/goAuD/TrustMindLab/main/assets/img/cross_ssh.jpg" alt="SSH connection success" width="350">
 
 ---
 
-## 📘 Lessons Learned
+## Lessons Learned
 
-- ⚠️ **Username is case-sensitive** – `goaud` ≠ `Goaud`
-- 🧨 Fedora initially failed because `/usr/bin/zsh` was missing
-- 🔐 Incorrect key permissions (`600` required) caused silent SSH failures
-- 🌐 It works across LAN **and** via Tailscale private network
+- **Username is case-sensitive** - `goaud` ≠ `Goaud`
+- Fedora initially failed because `/usr/bin/zsh` was missing
+- Incorrect key permissions (`600` required) caused silent SSH failures
+- It works across LAN **and** via Tailscale private network
 
 ---
 
-## 📎 SSH Cheat Sheet
+## SSH Cheat Sheet
 
 | Command | Purpose |
 |--------|---------|
@@ -171,7 +171,7 @@ ssh -p 2222 goaud@192.168.X.X
 
 ---
 
-✅ You now have fully working **cross-SSH access** between Fedora and Windows 11.  
+You now have fully working **cross-SSH access** between Fedora and Windows 11.  
 Ready for scripting, system management, and remote access tasks.  
 
 ---

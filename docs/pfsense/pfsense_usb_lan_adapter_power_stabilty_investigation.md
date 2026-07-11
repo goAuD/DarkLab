@@ -1,15 +1,15 @@
-# 🧾 USB Power Stability Investigation (pfSense USB-LAN Adapter)
+# USB Power Stability Investigation (pfSense USB-LAN Adapter)
 
-[![Join the TrustMindLab Discussions](https://img.shields.io/badge/💬_Join-TrustMindLab-blueviolet)](https://github.com/goAuD/MyHomeLab/discussions/1)
+[![Join the TrustMindLab Discussions](https://img.shields.io/badge/Join-TrustMindLab-blueviolet)](https://github.com/goAuD/MyHomeLab/discussions/1)
 <div class="badge-base LI-profile-badge" data-locale="hu_HU" data-size="medium" data-theme="light" data-type="VERTICAL" data-vanity="viktor-halupka-weiz" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://at.linkedin.com/in/viktor-halupka-weiz?trk=profile-badge">Viktor Halupka</a></div>
 
-## 🎯 Goal
+## Goal
 
 To diagnose and fix the unstable USB-LAN connection (AX88179) on a pfSense router running on an older laptop, which was randomly dropping the LAN interface.
 
 ---
 
-## 🧩 Symptoms
+## Symptoms
 
 - Frequent `ue0: link state changed to DOWN/UP` messages in system logs.
 
@@ -21,7 +21,7 @@ To diagnose and fix the unstable USB-LAN connection (AX88179) on a pfSense route
 
 ---
 
-## 🔬 Investigation Steps
+## Investigation Steps
 
 ### 1. Check USB Device State with `usbconfig`
 
@@ -87,7 +87,7 @@ hw.usb.no_suspend=1
 
 > This disables automatic USB power management that could cause disconnections due to idle suspend behavior.
 
-#### ✅ Result
+#### Result
 
 - The USB Ethernet adapter has remained stable since the above fixes.
 
@@ -99,7 +99,7 @@ hw.usb.no_suspend=1
 
 ---
 
-## 📌 Notes
+## Notes
 
 - BIOS settings had no USB power/suspend options available.
 
@@ -111,7 +111,7 @@ hw.usb.no_suspend=1
 
 ---
 
-## 📚 Lessons Learned
+## Lessons Learned
 
 - Physical issues like worn or damaged USB ports can appear as software instability.
 

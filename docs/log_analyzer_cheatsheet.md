@@ -13,17 +13,17 @@
 
 ## Important Files
 
-> /var/log/syslog – general system messages (Debian/Ubuntu)
+> /var/log/syslog - general system messages (Debian/Ubuntu)
 
-> /var/log/messages – similar, on CentOS/RHEL systems
+> /var/log/messages - similar, on CentOS/RHEL systems
 
-> /var/log/auth.log – authentication, sudo, ssh
+> /var/log/auth.log - authentication, sudo, ssh
 
-> /var/log/dmesg – kernel messages
+> /var/log/dmesg - kernel messages
 
-> /var/log/boot.log – system boot
+> /var/log/boot.log - system boot
 
-> /var/log/Xorg.0.log – graphical interface startup
+> /var/log/Xorg.0.log - graphical interface startup
 
 ---
 

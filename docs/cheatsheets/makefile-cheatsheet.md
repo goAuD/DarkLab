@@ -1,10 +1,10 @@
-# 🛠️ Makefile Cheatsheet (for Fedora system tasks)
+# Makefile Cheatsheet (for Fedora system tasks)
 
 A quick reference for using Makefile as a task runner in Fedora-based systems. This file is meant to be stored in your `docs/` directory for easy recall.
 
 ---
 
-## 📦 What is a Makefile?
+## What is a Makefile?
 
 A `Makefile` is a special configuration file used by the `make` command to automate repetitive tasks using **named targets**.
 
@@ -18,18 +18,18 @@ make unlock
 
 ---
 
-## 🧩 Basic Structure
+## Basic Structure
 
 ```make
 target-name:
 <TAB>command to run
 ```
 
-💡 Note: The command line **must start with a real tab character**, not spaces.
+Note: The command line **must start with a real tab character**, not spaces.
 
 ---
 
-## 🚀 Common Targets (Examples)
+## Common Targets (Examples)
 
 ```make
 install:
@@ -51,7 +51,7 @@ cleanlog:
 
 ---
 
-## 🛠️ Run Targets
+## Run Targets
 
 ```bash
 make                # Only runs the first target in the file
@@ -61,7 +61,7 @@ make cleanlog       # Deletes your akmods log
 
 ---
 
-## 🔍 Debug & Inspection
+## Debug & Inspection
 
 ### List current version locks:
 
@@ -77,7 +77,7 @@ sudo dnf versionlock delete kernel*
 
 ---
 
-## ❗ Pro Tips
+## Pro Tips
 
 - `Makefile` must be named exactly like that (no `.sh`, `.txt`, etc.)
 - Store it in the root of your project repo
@@ -89,7 +89,7 @@ sudo dnf versionlock delete kernel*
 
 ---
 
-## ✅ Why Use Make?
+## Why Use Make?
 
 - Readable, organized, version-controlled tasks
 - Easier than long `bash` scripts for routine system operations
@@ -97,4 +97,4 @@ sudo dnf versionlock delete kernel*
 
 ---
 
-## 🙌 Store this file as: `docs/makefile-cheatsheet.md`
+## Store this file as: `docs/makefile-cheatsheet.md`

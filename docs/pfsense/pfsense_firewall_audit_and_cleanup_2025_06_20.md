@@ -1,13 +1,13 @@
-# 🧱 Firewall Audit and Cleanup 2025|06|20
+# Firewall Audit and Cleanup 2025|06|20
 
-[![Join the TrustMindLab Discussions](https://img.shields.io/badge/💬_Join-TrustMindLab-blueviolet)](https://github.com/goAuD/MyHomeLab/discussions/1)
+[![Join the TrustMindLab Discussions](https://img.shields.io/badge/Join-TrustMindLab-blueviolet)](https://github.com/goAuD/MyHomeLab/discussions/1)
 <div class="badge-base LI-profile-badge" data-locale="hu_HU" data-size="medium" data-theme="light" data-type="VERTICAL" data-vanity="viktor-halupka-weiz" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://at.linkedin.com/in/viktor-halupka-weiz?trk=profile-badge">Viktor Halupka</a></div>
 
 During troubleshooting and system hardening of the pfSense setup, I performed an extensive audit and cleanup of firewall rules and network gateways. Here’s what happened:
 
 ---
 
-## 🔎 Suspicious Rules Identified
+## Suspicious Rules Identified
 
 Found two unknown rules under LAN:
 
@@ -23,7 +23,7 @@ Found two unknown rules under LAN:
 
 - Confirmed that these rules were unnecessary.
 
-> **🌐 IPv6 Disabled**
+> **IPv6 Disabled**
 
 ---
 
@@ -41,7 +41,7 @@ Found two unknown rules under LAN:
 
 ---
 
-## 🛜 WAN Gateway Issues Fixed
+## WAN Gateway Issues Fixed
 
 > **Problem: pfSense could not reach the upstream gateway (192.168.0.1)**
 > **Cause: the WAN interface’s gateway field was blank (read-only).**
@@ -53,13 +53,13 @@ After reboot:
 
 - dpinger stopped reporting sendto error: 65.
 
-> ⚠️ Gateway misconfiguration was blocking all WAN-bound traffic temporarily.
+> Gateway misconfiguration was blocking all WAN-bound traffic temporarily.
 
 ---
 
-## 🔄 pfBlockerNG Optimized
+## pfBlockerNG Optimized
 
-Enabled TLD (Top-Level Domain) processing – this sped up DNSBL lookups.
+Enabled TLD (Top-Level Domain) processing - this sped up DNSBL lookups.
 
 Side effect: higher CPU usage.
 
@@ -77,7 +77,7 @@ DNSBL services restarted cleanly:
 
 ## Final result: pfBlockerNG now runs more efficiently
 
-### ⚙️ Firewall Filter and Logs
+### Firewall Filter and Logs
 
 The pfBlockerNG Firewall Filter Service restarted multiple times.
 
@@ -92,7 +92,7 @@ Added description to rules to improve maintainability.
 
 ---
 
-### 🧹 Final State
+### Final State
 
 > All active firewall rules now have a clear purpose.
 

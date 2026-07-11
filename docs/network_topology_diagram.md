@@ -1,18 +1,18 @@
-# 🖼️ Network Topology Diagram – Security DarkLab
+# Network Topology Diagram - Security DarkLab
 
-## Fő elemek:
+## Main components
 
 > ISP Router/ZTE (WAN)
 
-> HP EliteDesk (Debian router + Suricata) – WAN/LAN szétválasztás
+> HP EliteDesk (Debian router + Suricata) - WAN/LAN separation
 
-> LAN Switch/AP – belső hálózat
+> LAN Switch/AP - internal network
 
-> VM-ek – Proxmoxon (Parrot, Honeypot, Windows, stb.)
+> VMs - on Proxmox (Parrot, Honeypot, Windows, etc.)
 
 ```ini
 
-            🌐 Internet
+            Internet
                  │
             [ISP Router]
                  │
@@ -29,14 +29,14 @@
   ┌──────┼────────┐     ┌──┴─────────────┐
   │      │        │     │                │
 Home  Windows   Laptop  Parrot        Honeypot
-PC    Admin     (mobil  Security OS    (Cowrie)
+PC    Admin     (mobile Security OS    (Cowrie)
       Laptop     device)    VM             VM
 ```
 
-## 📌 Diagram meta
+## Diagram notes
 
-HP EliteDesk → központi router + Suricata IDS/IPS host
+HP EliteDesk → central router + Suricata IDS/IPS host
 
-Proxmox → VM-ek (Parrot, Honeypot, teszt Windows, stb.)
+Proxmox → VMs (Parrot, Honeypot, test Windows, etc.)
 
-Switch/AP → belső hálózat eszközei (Home PC, Laptop, Smart TV, stb.)
+Switch/AP → internal network devices (Home PC, Laptop, Smart TV, etc.)
