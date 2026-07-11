@@ -1,6 +1,5 @@
 - [Home](/)
 - [Documentation Index](/docs/index.md)
-- [Changelog](/CHANGELOG.md)
 
 - **Cheatsheets**
   - [Fail2ban](/docs/cheatsheets/fail2ban_cheatsheet.md)
@@ -25,6 +24,11 @@
 - **Network**
   - [Network Topology](/docs/network_topology_diagram.md)
   - [SSH Cross Access](/docs/ssh_cross_access_fedora_windows.md)
+
+- **Releases**
+  - [v1.1.0](/releases/v1.1.0.md)
+  - [v1.0.0](/releases/v1.0.0.md)
+  - [v0.1.0](/releases/v0.1.0.md)
 
 - **Links**
   - [GitHub](https://github.com/goAuD/TrustMindLab)
