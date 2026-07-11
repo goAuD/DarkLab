@@ -85,6 +85,12 @@ I document everything I build and test - including missteps, debugging processes
 
 ---
 
+## See Also
+
+[ScamWard](https://github.com/goAuD/ScamWard) - my scam and social engineering field guide: real-world incident writeups and awareness material from the same author.
+
+---
+
 ## Final Words
 
 This lab is **not a showcase - it's a journey.**

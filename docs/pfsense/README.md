@@ -29,7 +29,7 @@ Each document reflects a piece of actual experimentation and hard-earned insight
 | File Name | Description |
 |-----------|-------------|
 | `pfblockerng_troubleshooting_and_optimization_2025_06.md` | Advanced filtering strategies and fine‑tuning of pfBlockerNG. |
-| `pfsense_cpu_optimalization(low_performance_hardware).md` | CPU load reduction techniques for low‑spec firewall hardware. |
+| `pfsense_cpu_optimalization_low_performance_hardware.md` | CPU load reduction techniques for low‑spec firewall hardware. |
 | `pfsense_disaster_recovery_guide.md` | Failover, backup, and restoration process for resilient systems. |
 | `pfsense_dismantling.md` | Device teardown and clean‑configuration workflows. |
 | `pfsense_firewall_audit_and_cleanup_2025_06_20.md` | Audit routines and hardening tips for production settings. |

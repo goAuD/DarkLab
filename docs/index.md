@@ -58,7 +58,7 @@ This index provides a categorized overview of all markdown files and their locat
 
 - [README.md](pfsense/README.md)
 - [pfblockerng_troubleshooting_and_optimization_2025_06.md](pfsense/pfblockerng_troubleshooting_and_optimization_2025_06.md)
-- [pfsense_cpu_optimalization(low_performance_hardware).md](pfsense/pfsense_cpu_optimalization(low_performance_hardware).md)
+- [pfsense_cpu_optimalization_low_performance_hardware.md](pfsense/pfsense_cpu_optimalization_low_performance_hardware.md)
 - [pfsense_disaster_recovery_guide.md](pfsense/pfsense_disaster_recovery_guide.md)
 - [pfsense_dismantling.md](pfsense/pfsense_dismantling.md)
 - [pfsense_firewall_audit_and_cleanup_2025_06_20.md](pfsense/pfsense_firewall_audit_and_cleanup_2025_06_20.md)
