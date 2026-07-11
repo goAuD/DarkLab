@@ -1,44 +1,44 @@
-# TrustMindLab – Windows→Debian Backup Cheatsheet (SFTP + Duplicati)
+# TrustMindLab - Windows→Debian Backup Cheatsheet (SFTP + Duplicati)
 
 ## TL;DR
 
-**Debian**: csatold a külső SSD-t `/srv/backups` alá (`fstab + UUID`), hozz létre `backupuser` felhasználót, zárd `chroot`-ba SFTP-re.  
-**Windows**: Duplicati → SFTP target `backupuser@<debian-ip>:/windows11` → titkosítás (AES-256), ütemezés, retention.  
-**Teszt**: `sftp backupuser@<debian-ip>` → `ls` csak `lost+found` + `windows11`.
+**Debian**: mount the external SSD under `/srv/backups` (`fstab + UUID`), create a `backupuser` account, restrict it to SFTP with `chroot`.
+**Windows**: Duplicati → SFTP target `backupuser@<debian-ip>:/windows11` → encryption (AES-256), schedule, retention.
+**Test**: `sftp backupuser@<debian-ip>` → `ls` shows only `lost+found` + `windows11`.
 
 ---
 
-## [MODE:FAST] Lépésről-lépésre (amit tényleg futtattunk)
+## [MODE:FAST] Step by step (what we actually ran)
 
-### 1) Külső SSD csatolása Debianon (ext4, /srv/backups)
+### 1) Mount the external SSD on Debian (ext4, /srv/backups)
 
 ```bash
-# 1) Ellenőrzés
+# 1) Check
 lsblk
 
-# 2) (Ha kell) formázás ext4-re – FIGYELEM: minden adat törlődik az sda1-en!
+# 2) (If needed) format as ext4 - WARNING: this erases all data on sda1!
 sudo mkfs.ext4 /dev/sda1
 
-# 3) Mount pont
+# 3) Mount point
 sudo mkdir -p /srv/backups
 
-# 4) Csatolás
+# 4) Mount
 sudo mount /dev/sda1 /srv/backups
 
-# 5) Ellenőrzés
+# 5) Check
 df -h | grep sda1
 
-# 6) UUID lekérdezés az fstab-hoz
+# 6) Look up the UUID for fstab
 sudo blkid /dev/sda1
-# Példa: UUID="281783b3-ba91-406a-a205-695098696e81"
+# Example: UUID="281783b3-ba91-406a-a205-695098696e81"
 ```
 
-**`/etc/fstab` (állandó csatoláshoz):**
+**`/etc/fstab` (for a permanent mount):**
 ```
 UUID=281783b3-ba91-406a-a205-695098696e81  /srv/backups  ext4  defaults  0  2
 ```
 
-**Aktiválás:**
+**Activate:**
 
 ```bash
 sudo mount -a
@@ -47,26 +47,26 @@ mount | grep /srv/backups
 
 ---
 
-### 2) Dedikált backup user + jogosultság
+### 2) Dedicated backup user + permissions
 
 ```bash
-# Shell nélküli user: csak SFTP-re
+# Shell-less user: SFTP only
 sudo adduser backupuser --shell /usr/sbin/nologin
 
-# Céltár kialakítása (Windows mentéseknek)
+# Target directory (for Windows backups)
 sudo mkdir -p /srv/backups/windows11
 sudo chown backupuser:backupuser /srv/backups/windows11
 ```
 
 ---
 
-### 3) SFTP chroot korlátozás (csak a backup-gyökér látszódjon)
+### 3) SFTP chroot restriction (only the backup root should be visible)
 
 ```bash
 sudo nano /etc/ssh/sshd_config
 ```
 
-**Add a végére:**
+**Add at the end:**
 
 ```
 Match User backupuser
@@ -75,7 +75,7 @@ Match User backupuser
     AllowTcpForwarding no
 ```
 
-**Alkalmazás:**
+**Apply:**
 
 ```bash
 sudo systemctl restart ssh
@@ -83,47 +83,47 @@ sudo systemctl restart ssh
 
 ---
 
-### 4) Gyors SFTP teszt Windowsról
+### 4) Quick SFTP test from Windows
 
 **PowerShell:**
 ```powershell
 sftp backupuser@<debian-ip>
-# jelszó megadása után:
+# after entering the password:
 sftp> ls
-# Várt kimenet: "lost+found  windows11"
+# Expected output: "lost+found  windows11"
 sftp> exit
 ```
 
-**WinSCP (opcionális):**
+**WinSCP (optional):**
 
-- Protocol: SFTP  
-- Host: `<debian-ip>` (mehet Tailscale IP is)  
-- Port: 22  
-- User/Pass: backupuser / jelszó  
+- Protocol: SFTP
+- Host: `<debian-ip>` (a Tailscale IP works too)
+- Port: 22
+- User/Pass: backupuser / password
 
-Belépve jobb oldalt csak `windows11` látszódjon (lost+found normális).
+After logging in, only `windows11` should be visible on the right (lost+found is normal).
 
 ---
 
-## [MODE:DEEP] Duplicati – ajánlott beállítások (Windows)
+## [MODE:DEEP] Duplicati - recommended settings (Windows)
 
-**Telepítés + indítás:**  
-Letöltés → telepítés → böngészőben: `http://localhost:8200`
+**Install + launch:**
+Download → install → in browser: `http://localhost:8200`
 
-### Új backup (példa: D: projektek)
+### New backup (example: D: projects)
 
-- **Name**: D-projects  
-- **Encryption**: AES-256, erős jelszó (jegyezd fel!)  
-- **Target**:  
-  - Storage type: SFTP (SSH)  
-  - Server/Port: `<debian-ip>:22`  
-  - Path: `/windows11/d-projects`  
-  - User/Pass: backupuser / jelszó  
-  - Test connection: kell hogy OK legyen
+- **Name**: D-projects
+- **Encryption**: AES-256, strong password (write it down!)
+- **Target**:
+  - Storage type: SFTP (SSH)
+  - Server/Port: `<debian-ip>:22`
+  - Path: `/windows11/d-projects`
+  - User/Pass: backupuser / password
+  - Test connection: must succeed
 
-- **Source**: jelöld a D:\ projekt mappákat
+- **Source**: select the D:\ project folders
 
-**Filters – tipikus kizárások:**
+**Filters - typical exclusions:**
 
 ```
 *\node_modules\*
@@ -135,29 +135,29 @@ Letöltés → telepítés → böngészőben: `http://localhost:8200`
 *.zip
 ```
 
-> Ha telepítőket is mentesz, ezeket ne zárd ki.
+> If you also back up installers, don't exclude these.
 
-**Schedule**: naponta 22:00  
-**Retention (Custom)**: `7D:1D, 4W:1W, 12M:1M`  
-➡ Jelentés: 7 napig napi, 4 hétig heti, 12 hónapig havi snapshot
+**Schedule**: daily at 22:00
+**Retention (Custom)**: `7D:1D, 4W:1W, 12M:1M`
+→ Meaning: daily snapshots for 7 days, weekly for 4 weeks, monthly for 12 months
 
 ---
 
-### C: kritikus adatok (külön job javasolt)
+### C: critical data (a separate job is recommended)
 
-**Forrás – mentsd:**
+**Source - back up:**
 
 ```
-C:\Users\<NEVED>\Documents
-C:\Users\<NEVED>\Desktop
-C:\Users\<NEVED>\Pictures
-C:\Users\<NEVED>\.ssh\
-C:\Users\<NEVED>\AppData\Roaming\
-(válogatva) C:\Users\<NEVED>\AppData\Local\
+C:\Users\<YOURNAME>\Documents
+C:\Users\<YOURNAME>\Desktop
+C:\Users\<YOURNAME>\Pictures
+C:\Users\<YOURNAME>\.ssh\
+C:\Users\<YOURNAME>\AppData\Roaming\
+(selectively) C:\Users\<YOURNAME>\AppData\Local\
 C:\ProgramData\
 ```
 
-**Forrás – zárd ki:**
+**Source - exclude:**
 
 ```
 C:\Windows\
@@ -167,19 +167,19 @@ C:\$Recycle.Bin\
 C:\pagefile.sys
 C:\hiberfil.sys
 C:\swapfile.sys
-C:\Users\<NEVED>\AppData\Local\Temp\
-C:\Users\<NEVED>\AppData\Local\Microsoft\Windows\INetCache\
+C:\Users\<YOURNAME>\AppData\Local\Temp\
+C:\Users\<YOURNAME>\AppData\Local\Microsoft\Windows\INetCache\
 ```
 
-**Schedule**: heti 2× (kedd+péntek 22:00)  
-**Retention**: `4W:1W, 12M:1M`  
+**Schedule**: twice weekly (Tuesday + Friday at 22:00)
+**Retention**: `4W:1W, 12M:1M`
 
 ---
 
-## Smart vs. Custom retention – gyors magyarázat
+## Smart vs. Custom retention - quick explanation
 
-- **Smart**: egyszerű, automatizált → `7D:4W:12M`
-- **Custom**: kézzel → `<időtáv>:<mintavétel>` vesszővel:
+- **Smart**: simple, automated → `7D:4W:12M`
+- **Custom**: manual → `<time span>:<sampling>` comma-separated:
 
 ```
 7D:1D, 4W:1W, 12M:1M
@@ -188,76 +188,76 @@ C:\Users\<NEVED>\AppData\Local\Microsoft\Windows\INetCache\
 
 ---
 
-## Hasznos jegyzetek
+## Useful notes
 
-- **UUID**: a partíció egyedi azonosítója:  
+- **UUID**: the partition's unique identifier:
   `sudo blkid /dev/sda1`
 
-- **fstab-ban UUID**-t használunk, mert stabilabb mint a `/dev/sdX` név.
+- We use the **UUID in fstab** because it's more stable than the `/dev/sdX` name.
 
-- **lost+found** az ext4 saját mappája → hagyd békén.
+- **lost+found** is ext4's own directory → leave it alone.
 
-- **chroot szabály**: a gyökér tulaja root legyen:
+- **chroot rule**: the root directory must be owned by root:
 
 ```bash
 sudo chown root:root /srv/backups
 sudo chown backupuser:backupuser /srv/backups/windows11
 ```
 
-- **Tailscale**: használhatod a Tailscale IP-t a Duplicatiban.
+- **Tailscale**: you can use the Tailscale IP in Duplicati.
 
-- **Titkosítás**: ha elveszted a jelszót → mentés olvashatatlan.
+- **Encryption**: if you lose the password → the backup is unreadable.
 
-- **Első futás**: lassú → ez normális (titkosítás + tömörítés + uplink)
-
----
-
-## Restore mini-teszt – ajánlott
-
-1. Duplicati → Restore → válassz 1–2 fájlt
-2. Restore egy ideiglenes mappába
-3. Ellenőrizd: megnyithatóak?
+- **First run**: slow → this is normal (encryption + compression + uplink)
 
 ---
 
-## Restore – 60 másodperces vázlat
+## Restore mini-test - recommended
 
-1. Duplicati UI → Restore  
-2. Válassz dátumot (verziót)  
-3. Válaszd ki a fájlokat/mappákat  
-4. Restore files to… (új helyre)  
-5. Nyisd meg a fájlt → ha rendben van, jöhet az éles restore
+1. Duplicati → Restore → select 1-2 files
+2. Restore to a temporary folder
+3. Check: do they open correctly?
 
 ---
 
-## ✅ CHECKLIST (gyors audit)
+## Restore - 60-second outline
 
-- `/etc/fstab` → UUID sor rendben, `mount -a` hiba nélkül  
-- `/srv/backups` root tulajdon, `windows11` mappa `backupuser` tulajdon  
-- `sshd_config` → `Match User backupuser` blokk bent, SSH újraindítva  
-- `sftp backupuser@<ip>` → látod a `windows11`-et  
-- **Duplicati D:** napi, `7D:1D,4W:1W,12M:1M`, kizárások beállítva  
-- **Duplicati C:** kedd+péntek 22:00, `4W:1W,12M:1M`, rendszer/cache kizárva  
-- Próba restore lefutott (legalább 2 fájllal)
+1. Duplicati UI → Restore
+2. Choose a date (version)
+3. Select the files/folders
+4. Restore files to... (a new location)
+5. Open the file → if it's fine, proceed with the real restore
 
 ---
 
-## 📌 DECISION LOG (aktuális)
+## CHECKLIST (quick audit)
 
-- **Target**: Külső 2TB SSD, ext4 → `/srv/backups`  
-- **Protokoll**: SFTP (SSH), chrootolt `backupuser`  
-- **Backup kliens**: Duplicati (fájlszint, titkosítás, deduplikáció)  
-- **Retention**:  
-  - D: `7D:1D,4W:1W,12M:1M`  
-  - C: `4W:1W,12M:1M`  
-- **Ütemezés**:  
-  - D: napi 22:00  
-  - C: kedd+péntek 22:00
+- `/etc/fstab` → UUID line correct, `mount -a` runs without error
+- `/srv/backups` owned by root, `windows11` folder owned by `backupuser`
+- `sshd_config` → `Match User backupuser` block present, SSH restarted
+- `sftp backupuser@<ip>` → you can see `windows11`
+- **Duplicati D:** daily, `7D:1D,4W:1W,12M:1M`, exclusions configured
+- **Duplicati C:** Tuesday+Friday at 22:00, `4W:1W,12M:1M`, system/cache excluded
+- Trial restore completed (with at least 2 files)
 
 ---
 
-## ▶️ NEXT ACTIONS
+## DECISION LOG (current)
 
-- **Duplicati – D:** ellenőrizd, hogy fut-e az első teljes mentés, majd állíts be e-mail értesítőt (ha használod). *(Te, 10–15p)*  
-- **Duplicati – C:** finomhangold az exclude listát (Temp/INetCache biztosan menjen ki). *(Te, 5–10p)*  
-- **Restore mini-teszt**: válassz ki 2–3 fájlt (egyik legyen AppData-ból), restore egy temp mappába, nyisd meg. *(Te, 10p)*
+- **Target**: External 2TB SSD, ext4 → `/srv/backups`
+- **Protocol**: SFTP (SSH), chrooted `backupuser`
+- **Backup client**: Duplicati (file-level, encryption, deduplication)
+- **Retention**:
+  - D: `7D:1D,4W:1W,12M:1M`
+  - C: `4W:1W,12M:1M`
+- **Schedule**:
+  - D: daily at 22:00
+  - C: Tuesday+Friday at 22:00
+
+---
+
+## NEXT ACTIONS
+
+- **Duplicati - D:** check whether the first full backup has run, then set up an email notification (if used). *(You, 10-15min)*
+- **Duplicati - C:** fine-tune the exclude list (make sure Temp/INetCache is excluded). *(You, 5-10min)*
+- **Restore mini-test**: pick 2-3 files (one from AppData), restore to a temp folder, open them. *(You, 10min)*

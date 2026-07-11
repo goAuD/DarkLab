@@ -1,17 +1,17 @@
-# ⏰ Cron + Akmods Monitoring Guide (Fedora)
+# Cron + Akmods Monitoring Guide (Fedora)
 
 This cheatsheet explains how to use `cron` to regularly check whether the NVIDIA kernel module (`akmods`) is built correctly on Fedora systems. Especially useful when kernel updates are disabled and you want to know when akmods becomes available again.
 
 ---
 
-## 📦 What does it monitor?
+## What does it monitor?
 
 The script `check_akmods.sh` checks if the `kmod-nvidia` module exists for the current kernel.  
 It logs the result into a timestamped log file: `~/.akmods-check.log`
 
 ---
 
-## ✍️ Sample Script: `check_akmods.sh`
+## Sample Script: `check_akmods.sh`
 
 ```bash
 #!/bin/bash
@@ -21,9 +21,9 @@ LOG=~/.akmods-check.log
 date "+%Y. %b. %d., %A, %T %Z:" >> "$LOG"
 
 if ! rpm -q kmod-nvidia > /dev/null; then
-  echo "❌ akmods not yet available." >> "$LOG"
+  echo "akmods not yet available." >> "$LOG"
 else
-  echo "✅ akmods present." >> "$LOG"
+  echo "akmods present." >> "$LOG"
 fi
 ```
 
@@ -37,7 +37,7 @@ chmod +x ~/scripts/check_akmods.sh
 
 ---
 
-## 📅 How to add it to crontab
+## How to add it to crontab
 
 Edit your personal crontab:
 
@@ -59,7 +59,7 @@ That’s it! Cron will now check akmods regularly and log to:
 
 ---
 
-## 🧪 Test manually
+## Test manually
 
 You can also run the check anytime:
 
@@ -69,7 +69,7 @@ You can also run the check anytime:
 
 ---
 
-## 🧹 Clean the log (optional)
+## Clean the log (optional)
 
 ```bash
 rm ~/.akmods-check.log
@@ -83,13 +83,13 @@ make cleanlog
 
 ---
 
-## 🔁 What if you prefer systemd-timer instead?
+## What if you prefer systemd-timer instead?
 
 >See the **systemd-akmods-check.md** file in this project for an alternative using systemd instead of cron.
 
 ---
 
-## ✅ Why this is useful
+## Why this is useful
 
 - Detects when it's safe to unlock kernel and update
 

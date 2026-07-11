@@ -1,6 +1,6 @@
 # Autofill git commit troubleshooting
 
-[![Join the TrustMindLab Discussions](https://img.shields.io/badge/💬_Join-TrustMindLab-blueviolet)](https://github.com/goAuD/MyHomeLab/discussions/1)  
+[![Join the TrustMindLab Discussions](https://img.shields.io/badge/Join-TrustMindLab-blueviolet)](https://github.com/goAuD/MyHomeLab/discussions/1)  
 <div class="badge-base LI-profile-badge" data-locale="hu_HU" data-size="medium" data-theme="light" data-type="VERTICAL" data-vanity="viktor-halupka-weiz" data-version="v1">
   <a class="badge-base__link LI-simple-link" href="https://at.linkedin.com/in/viktor-halupka-weiz?trk=profile-badge">Viktor Halupka</a>
 </div>
@@ -9,7 +9,7 @@ A practical troubleshooting guide for setting up Git commit templates and Visual
 
 ---
 
-## ✅ Goal
+## Goal
 
 Ensure that running `git commit`:
 
@@ -19,7 +19,7 @@ Ensure that running `git commit`:
 
 ---
 
-## 🧩 Common Symptom
+## Common Symptom
 
 > You run `git commit` but **nothing happens**, and the editor does not open.
 
@@ -33,7 +33,7 @@ Ensure that running `git commit`:
 
 ---
 
-## 🧪 Quick Sanity Test (run in Git Bash or WSL)
+## Quick Sanity Test (run in Git Bash or WSL)
 
 ```bash
 git config --global core.editor "code --wait"
@@ -53,9 +53,9 @@ git commit
 
 ---
 
-## 🛠️ If it still doesn't open VS Code
+## If it still doesn't open VS Code
 
-### Option A – Git Bash workaround
+### Option A - Git Bash workaround
 
 Use this form to bypass core.editor entirely:
 
@@ -63,14 +63,14 @@ Use this form to bypass core.editor entirely:
 GIT_EDITOR="C:/Users/YOUR_USERNAME/AppData/Local/Programs/Microsoft VS Code/bin/code.cmd --wait" git commit
 ```
 
-### Option B – PowerShell workaround
+### Option B - PowerShell workaround
 
 ```powershell
 $env:GIT_EDITOR = "C:\Users\YOUR_USERNAME\AppData\Local\Programs\Microsoft VS Code\bin\code.cmd --wait"
 git commit
 ```
 
-### Option C – WSL (recommended)
+### Option C - WSL (recommended)
 
 ```bash
 git config --global core.editor "code --wait"
@@ -83,7 +83,7 @@ If everything is set up correctly, this will launch VS Code with the commit temp
 
 ---
 
-## 🧼 Cleanup
+## Cleanup
 
 Remove the test file after testing:
 
@@ -95,6 +95,6 @@ del TEMP_TEST.md    # in PowerShell
 
 ---
 
-## 🙌 You're good to go!
+## You're good to go!
 
-Commit template + VS Code integration is now working across all shells 🚀
+Commit template + VS Code integration is now working across all shells

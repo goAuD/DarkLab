@@ -1,10 +1,10 @@
 # Pandoc Cheat Sheet
 
-## Egyszerű Pandoc-parancs, azonos mappa, nem kell útvonalat írni:
+## Simple Pandoc command, same folder, no path needed:
 
 > pandoc darklab_humor.md -o darklab_humor.html --css darklab_dark.css --standalone
 
-## Projektstrukturált mappa, ha sok .md fájl van:
+## Structured project folder, if there are many .md files:
 
 ```ini
 darklab/
@@ -17,13 +17,13 @@ darklab/
 └── index.md
 ```
 
-## Ilyenkor Pandoc-ban így:
+## In that case, Pandoc looks like this:
 
 > pandoc humor/darklab_humor.md -o humor/darklab_humor.html --css ../css/darklab_dark.css --standalone
 
-## GitHub repóban (publikálás esetén):
+## In a GitHub repo (when publishing):
 
-Ha később GitHub Pages-en vagy más webes felületen is megjeleníted, akkor a css/ mappába érdemes rakni, és a HTML-ek <head> szakaszában relatív linkként hivatkozni rájuk:
+If you're later rendering this on GitHub Pages or another web frontend, it's worth putting the stylesheets in a `css/` folder and referencing them as a relative link in the HTML `<head>` section:
 
 ```ini
 <link rel="stylesheet" href="css/darklab_dark.css">

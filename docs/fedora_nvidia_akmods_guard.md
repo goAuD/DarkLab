@@ -1,6 +1,6 @@
 # Fedora + NVIDIA Akmods Guard
 
-[![Join the TrustMindLab Discussions](https://img.shields.io/badge/💬_Join-TrustMindLab-blueviolet)](https://github.com/goAuD/MyHomeLab/discussions/1)  
+[![Join the TrustMindLab Discussions](https://img.shields.io/badge/Join-TrustMindLab-blueviolet)](https://github.com/goAuD/MyHomeLab/discussions/1)  
 <div class="badge-base LI-profile-badge" data-locale="hu_HU" data-size="medium" data-theme="light" data-type="VERTICAL" data-vanity="viktor-halupka-weiz" data-version="v1">
   <a class="badge-base__link LI-simple-link" href="https://at.linkedin.com/in/viktor-halupka-weiz?trk=profile-badge">Viktor Halupka</a>
 </div>
@@ -9,13 +9,13 @@ A lightweight, scriptable safeguard for Fedora users running proprietary NVIDIA 
 
 ---
 
-## 🚀 Overview
+## Overview
 
 This setup prevents Fedora from automatically upgrading the kernel beyond your current working version. It also monitors `akmods` availability and can alert you (via log) if the kernel module isn't ready yet. It includes scripts to lock/unlock the kernel and a cron-based monitor to alert for missing modules.
 
 ---
 
-## 🔐 Kernel Version Lock
+## Kernel Version Lock
 
 We use `dnf versionlock` to pin the current kernel and its related packages:
 
@@ -31,7 +31,7 @@ sudo dnf versionlock delete kernel kernel-core kernel-modules kernel-modules-ext
 
 ---
 
-## ✍️ Scripts
+## Scripts
 
 ### 1. `versionlock-kernel.sh`
 
@@ -57,15 +57,15 @@ sudo dnf versionlock delete kernel kernel-core kernel-modules kernel-modules-ext
 LOG=~/.akmods-check.log
 date "+%Y. %b. %d., %A, %T %Z:" >> "$LOG"
 if ! rpm -q kmod-nvidia > /dev/null; then
-  echo "❌ akmods not yet available." >> "$LOG"
+  echo "akmods not yet available." >> "$LOG"
 else
-  echo "✅ akmods present." >> "$LOG"
+  echo "akmods present." >> "$LOG"
 fi
 ```
 
 ---
 
-## ⏰ Cron Setup
+## Cron Setup
 
 You can set up a cron job to check every 15 minutes:
 
@@ -87,7 +87,7 @@ chmod +x ~/bin/check_akmods.sh
 
 ---
 
-## 📊 Logs
+## Logs
 
 Script logs to:
 
@@ -97,13 +97,13 @@ Script logs to:
 
 ---
 
-## ⚙️ Optional: GUI Cron (not recommended)
+## Optional: GUI Cron (not recommended)
 
 Fedora 43 has no maintained GUI cron tools. Use `crontab -e` instead.
 
 ---
 
-## 🔹 Recommended Use
+## Recommended Use
 
 - Run `versionlock-kernel.sh` after NVIDIA setup works.
 - Use `check_akmods.sh` in cron to monitor module readiness.
@@ -111,7 +111,7 @@ Fedora 43 has no maintained GUI cron tools. Use `crontab -e` instead.
 
 ---
 
-## ✨ Future Improvements
+## Future Improvements
 
 - Email or desktop notification for akmod failure
 - systemd-timer alternative to cron
@@ -119,6 +119,6 @@ Fedora 43 has no maintained GUI cron tools. Use `crontab -e` instead.
 
 ---
 
-## 🙌 Contributions welcome!
+## Contributions welcome!
 
 Fork or pull request via: [https://github.com/goAuD/DarkLab](https://github.com/goAuD/DarkLab)

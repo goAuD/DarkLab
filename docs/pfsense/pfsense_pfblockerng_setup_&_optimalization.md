@@ -1,9 +1,9 @@
-# pfBlockerNG Setup and Optimization – Summary
+# pfBlockerNG Setup and Optimization - Summary
 
-[![Join the TrustMindLab Discussions](https://img.shields.io/badge/💬_Join-TrustMindLab-blueviolet)](https://github.com/goAuD/MyHomeLab/discussions/1)
+[![Join the TrustMindLab Discussions](https://img.shields.io/badge/Join-TrustMindLab-blueviolet)](https://github.com/goAuD/MyHomeLab/discussions/1)
 <div class="badge-base LI-profile-badge" data-locale="hu_HU" data-size="medium" data-theme="light" data-type="VERTICAL" data-vanity="viktor-halupka-weiz" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://at.linkedin.com/in/viktor-halupka-weiz?trk=profile-badge">Viktor Halupka</a></div>
 
-## 🔧 Installation
+## Installation
 
 - Installed `pfBlockerNG-devel` via the pfSense Package Manager.
 
@@ -17,7 +17,7 @@
 
 ---
 
-## ⚙️ Core Settings
+## Core Settings
 
 - **DNS Resolver (Unbound)** is enabled.
 
@@ -25,11 +25,11 @@
 
 - DNS field is left empty or set to `127.0.0.1`.
 
-- ✅ `Allow DNS server list to be overridden by DHCP/PPP on WAN` is **disabled**.
+- `Allow DNS server list to be overridden by DHCP/PPP on WAN` is **disabled**.
 
 ---
 
-## 🧱 DNSBL
+## DNSBL
 
 - Activated the `StevenBlack_ADs` list (over 202,000 blocked domains).
 
@@ -39,7 +39,7 @@
 
 ---
 
-## 🌍 GeoIP
+## GeoIP
 
 - Successfully downloaded and processed MaxMind GeoLite2 database.
 
@@ -51,7 +51,7 @@
 
 ---
 
-## 🚫 IP Blacklists (IPv4)
+## IP Blacklists (IPv4)
 
 Active lists and number of blocked IPs:
 
@@ -62,15 +62,15 @@ Active lists and number of blocked IPs:
 | ET_Comp_v4        | 438      | Supplementary ET list         |
 | Spamhaus_Drop_v4  | 5        | Very reliable blacklist        |
 | ISC_Block_v4      | 2        | Internet Storm Center         |
-| Abuse_SSLBL_v4    | 1 (dummy)| ⚠️ Empty – to be removed       |
-| Abuse_Feodo_C2_v4 | 1 (dummy)| ⚠️ Empty – to be removed       |
-| Talos_BL_v4       | ❌ Error | ✔️ Removed due to 403 failure  |
+| Abuse_SSLBL_v4    | 1 (dummy)| Empty - to be removed       |
+| Abuse_Feodo_C2_v4 | 1 (dummy)| Empty - to be removed       |
+| Talos_BL_v4       | Error | Removed due to 403 failure  |
 
-> 📌 All IP lists use `Deny Inbound` mode.
+> All IP lists use `Deny Inbound` mode.
 
 ---
 
-## ➕ Recommended IP Lists Added
+## Recommended IP Lists Added
 
 | List name         | Source URL                                                              | Notes                         |
 |-------------------|-------------------------------------------------------------------------|-------------------------------|
@@ -80,7 +80,7 @@ Active lists and number of blocked IPs:
 
 ---
 
-## 📥 Updates & Issues
+## Updates & Issues
 
 - Lists are refreshed automatically via `CRON`.
 
@@ -90,7 +90,7 @@ Active lists and number of blocked IPs:
 
 ---
 
-## ❗ Top Spammers
+## Top Spammers
 
 - The `Top Spammers` list became available after GeoIP update.
 
@@ -100,7 +100,7 @@ Active lists and number of blocked IPs:
 
 ---
 
-## ✅ Overall Status
+## Overall Status
 
 - pfBlockerNG is running **smoothly and effectively**.
 

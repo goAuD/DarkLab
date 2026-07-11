@@ -1,6 +1,6 @@
-# 🧙‍♂️ The Sysadmin's Verse 🧙‍♂
+# The Sysadmin's Verse
 
-[![Join the TrustMindLab Discussions](https://img.shields.io/badge/💬_Join-TrustMindLab-blueviolet)](https://github.com/goAuD/MyHomeLab/discussions/1)
+[![Join the TrustMindLab Discussions](https://img.shields.io/badge/Join-TrustMindLab-blueviolet)](https://github.com/goAuD/MyHomeLab/discussions/1)
 <div class="badge-base LI-profile-badge" data-locale="hu_HU" data-size="medium" data-theme="light" data-type="VERTICAL" data-vanity="viktor-halupka-weiz" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://at.linkedin.com/in/viktor-halupka-weiz?trk=profile-badge">Viktor Halupka</a></div>
 
 ---
@@ -31,17 +31,17 @@ Status of my pfSense - minimal CPU load, low memory usage, and a KEA-powered DHC
 
 This isn’t just a HomeLab project. This is an epic.
 
-An old HP laptop, once forgotten, rises again – not as a client, but as a firewall.  
+An old HP laptop, once forgotten, rises again - not as a client, but as a firewall.  
 The hero's journey spans two interfaces: one toward the ISP, one into the heart of the LAN.  
 Along the way, they face mythical entities such as `dhcpd`, the `pfctl` daemon, and the fearsome `nbound`.
 
-## ⚔️ The Quest
+## The Quest
 
 - [x] Install pfSense on a 2017-ish laptop that wheezes under load
 
 - [x] Configure WAN/LAN interfaces (with some reboot rituals)
 
-- [x] Grant LAN devices access to the internet – *finally*
+- [x] Grant LAN devices access to the internet - *finally*
 
 - [x] Explore the dark arts of port forwarding
 
@@ -51,15 +51,15 @@ Along the way, they face mythical entities such as `dhcpd`, the `pfctl` daemon, 
 
 ---
 
-## 🧱 How I Stabilized pfSense on an Old Laptop — A DIY Firewall Journey
+## How I Stabilized pfSense on an Old Laptop — A DIY Firewall Journey
 
-## 🎯 Goal
+## Goal
 
 Build a reliable and secure pfSense firewall on aging hardware, using only minimal resources — and **a lot of patience**.
 
 ---
 
-## 🛠️ The Setup
+## The Setup
 
 - **Device:** 2017 HP notebook (AMD A9, 8 GB RAM)
 
@@ -71,23 +71,23 @@ Build a reliable and secure pfSense firewall on aging hardware, using only minim
 
 ---
 
-## ⚠️ The Challenge
+## The Challenge
 
 The USB-LAN adapter (`ue0`) kept randomly **dropping the link**, causing:
 
-- 🔄 Flapping interface state (`ue0: link state changed`)
+- Flapping interface state (`ue0: link state changed`)
 
-- 📉 LAN interruption & WAN routing failure
+- LAN interruption & WAN routing failure
 
-- 🔁 Continuous `/rc.linkup` and filter reloads
+- Continuous `/rc.linkup` and filter reloads
 
-- ❌ Unstable network and IPsec/VPN issues
+- Unstable network and IPsec/VPN issues
 
 ---
 
-## 🔍 Troubleshooting Summary
+## Troubleshooting Summary
 
-### ✅ What Worked
+### What Worked
 
 1. **Replaced old USB-Ethernet adapter with a UGREEN AX88179**  
    → Significantly better chipset + driver stability
@@ -106,21 +106,21 @@ The USB-LAN adapter (`ue0`) kept randomly **dropping the link**, causing:
 
 ---
 
-## 💬 Lessons Learned
+## Lessons Learned
 
-- 🧠 *Software stability is meaningless if your hardware is unstable.*
+- *Software stability is meaningless if your hardware is unstable.*
 
-- ⚡ *Powered USB hubs can be lifesavers in embedded setups.*
+- *Powered USB hubs can be lifesavers in embedded setups.*
 
-- 🧯 *Sometimes the simplest change (port switch) solves cascading issues.*
+- *Sometimes the simplest change (port switch) solves cascading issues.*
 
-- 🛜 *Don’t trust every USB adapter — go with a reliable chipset (ASIX, Realtek with known FreeBSD support).*
+- *Don’t trust every USB adapter — go with a reliable chipset (ASIX, Realtek with known FreeBSD support).*
 
-- 📝 *Document everything. Your logs will tell the story if you’re listening.*
+- *Document everything. Your logs will tell the story if you’re listening.*
 
 ---
 
-## 🧩 Known Limitations
+## Known Limitations
 
 - Still **avoiding unnecessary cable movement**, as it may destabilize the connection.
 
@@ -130,19 +130,19 @@ The USB-LAN adapter (`ue0`) kept randomly **dropping the link**, causing:
 
 ---
 
-## 🏁 Final Words
+## Final Words
 
 It wasn’t easy, but I built a working, stable pfSense firewall using:
 
-> 🔌 Old hardware  
-> 🛠️ Cheap parts  
-> 🧠 Knowledge  
-> ⏳ Patience  
-> 🤝 And a helpful AI partner.
+> Old hardware  
+> Cheap parts  
+> Knowledge  
+> Patience  
+> And a helpful AI partner.
 
 I now have a reliable firewall, full control over my LAN, and a great learning experience.  
 This journey proves: **you don’t need expensive hardware to build a professional-grade home lab — just persistence**.
 
 ---
 
-## 🧙‍♂️ *Written after ca. 1 month of real-time troubleshooting, logging, and testing. If you’re reading this and struggling: keep going. You're not alone.* 🧙‍♂️
+## *Written after ca. 1 month of real-time troubleshooting, logging, and testing. If you’re reading this and struggling: keep going. You're not alone.*

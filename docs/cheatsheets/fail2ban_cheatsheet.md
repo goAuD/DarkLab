@@ -1,13 +1,13 @@
 # Fail2ban Cheat Sheet (Debian-based Systems)
 
-## 📦 Installation
+## Installation
 
 ```bash
 sudo apt update
 sudo apt install -y fail2ban
 ```
 
-## ⚠️ Required: Enable rsyslog for SSH log monitoring
+## Required: Enable rsyslog for SSH log monitoring
 
 ```bash
 sudo apt install -y rsyslog
@@ -18,7 +18,7 @@ sudo systemctl enable rsyslog --now
 
 ---
 
-## 🔐 Basic Usage (SSH protection)
+## Basic Usage (SSH protection)
 
 ```bash
 sudo systemctl enable fail2ban --now
@@ -28,7 +28,7 @@ sudo systemctl enable fail2ban --now
 
 ---
 
-## 🔎 Check Status
+## Check Status
 
 ```bash
 sudo fail2ban-client status
@@ -37,7 +37,7 @@ sudo fail2ban-client status sshd
 
 ---
 
-## ⚙️ Configuration Files
+## Configuration Files
 
 - Main config (read-only): /etc/fail2ban/jail.conf
 
@@ -47,13 +47,13 @@ sudo fail2ban-client status sshd
 
 ---
 
-## 🐞 Troubleshooting
+## Troubleshooting
 
 ### Problem: Fail2ban fails to start
 
 > ERROR   Failed during configuration: Have not found any log file for sshd jail
 
-1. **⚙️ Fix:**
+1. **Fix:**
 
 - Make sure /var/log/auth.log exists (install rsyslog)
 
@@ -63,13 +63,13 @@ sudo fail2ban-client status sshd
 sudo fail2ban-client -v -x start
 ```
 
-2. **🔥 Ban Log**
+2. **Ban Log**
 
 ```bash
 sudo cat /var/log/fail2ban.log
 ```
 
-1. **📤 Unban IP**
+1. **Unban IP**
 
 ```bash
 sudo fail2ban-client set sshd unbanip 192.168.0.100

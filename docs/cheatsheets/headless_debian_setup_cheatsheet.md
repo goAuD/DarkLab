@@ -1,6 +1,6 @@
 # Headless Debian Installation & Initial Setup
 
-## 💿 Installation (Balena Etcher / Rufus)
+## Installation (Balena Etcher / Rufus)
 
 1. Download Debian ISO: https://www.debian.org/distrib/
 2. Flash it to USB using Balena Etcher or Rufus
@@ -11,19 +11,19 @@
 7. Domain: local (or blank)
 8. Set root password & create user
 
-## 💾 Partitioning
+## Partitioning
 
 - Use: `Guided - use entire disk`
 - Enable swap unless low on RAM
 
-## 🧰 Software Selection
+## Software Selection
 
 - Uncheck GUI/Desktop Environment
 - Check only:
   - [x] SSH server
   - [x] standard system utilities
 
-## 🟢 First Boot (from another PC via SSH)
+## First Boot (from another PC via SSH)
 
 ```bash
 ssh youruser@<LAN IP>
@@ -68,7 +68,7 @@ sudo sysctl -p
 
 ---
 
-## ✅ Ready for:
+## Ready for:
 
     Secure remote access
 

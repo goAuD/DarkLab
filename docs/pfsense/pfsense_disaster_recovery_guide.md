@@ -1,6 +1,6 @@
-# 🛠️ pfSense Disaster Recovery Guide
+# pfSense Disaster Recovery Guide
 
-[![Join the TrustMindLab Discussions](https://img.shields.io/badge/💬_Join-TrustMindLab-blueviolet)](https://github.com/goAuD/MyHomeLab/discussions/1)
+[![Join the TrustMindLab Discussions](https://img.shields.io/badge/Join-TrustMindLab-blueviolet)](https://github.com/goAuD/MyHomeLab/discussions/1)
 <div class="badge-base LI-profile-badge" data-locale="hu_HU" data-size="medium" data-theme="light" data-type="VERTICAL" data-vanity="viktor-halupka-weiz" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://at.linkedin.com/in/viktor-halupka-weiz?trk=profile-badge">Viktor Halupka</a></div>
 
 ---
@@ -9,7 +9,7 @@ In a critical failure scenario (e.g. failed update, hardware corruption, misconf
 
 ---
 
-## 🧩 Components of a Full Backup Strategy
+## Components of a Full Backup Strategy
 
 | Component       | Method                                  | Frequency        |
 |----------------|------------------------------------------|------------------|
@@ -19,7 +19,7 @@ In a critical failure scenario (e.g. failed update, hardware corruption, misconf
 
 ---
 
-## ✅ Method 1: Full Disk Image Backup with Clonezilla (Recommended)
+## Method 1: Full Disk Image Backup with Clonezilla (Recommended)
 
 **Why**: Clonezilla creates a full, bootable disk image, allowing you to restore pfSense with all packages (e.g. pfBlockerNG, DNSBL, GeoIP, Tailscale, etc.) and settings intact.
 
@@ -55,7 +55,7 @@ In a critical failure scenario (e.g. failed update, hardware corruption, misconf
 
 ---
 
-## ✅ Method 2: Manual Disk Image with `dd` (Advanced)
+## Method 2: Manual Disk Image with `dd` (Advanced)
 
 You can use the FreeBSD `dd` command to make a raw copy of the disk.
 

@@ -1,4 +1,4 @@
-# Security HomeLab – Complete Setup Roadmap
+# Security HomeLab - Complete Setup Roadmap
 
 ![Focus](https://img.shields.io/badge/focus-security%20homelab-critical)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
@@ -18,8 +18,8 @@
 
 ### Network Interfaces
 
-1. **Base NIC (LAN)** – internal network (switch, HomeLab devices)
-2. **Intel NIC (WAN)** – external network (ISP ZTE router)
+1. **Base NIC (LAN)** - internal network (switch, HomeLab devices)
+2. **Intel NIC (WAN)** - external network (ISP ZTE router)
    - Bracket installation required for stable mounting
 
 ### Display
@@ -56,7 +56,7 @@
 
 **VMs to start**:
 
-- **Parrot Security OS** – pentest / sandbox environment
+- **Parrot Security OS** - pentest / sandbox environment
 - (later) Kali Linux, Honeypot (Cowrie), Windows test VM
 
 ---
@@ -66,9 +66,9 @@
 ### 1. Suricata (IDS/IPS)
 
 - Installation on Debian host
-- **Starts in IDS mode** – traffic observation
+- **Starts in IDS mode** - traffic observation
 - EVE JSON log → Splunk input
-- Later: **IPS mode** – active blocking
+- Later: **IPS mode** - active blocking
 
 ---
 

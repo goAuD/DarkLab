@@ -1,4 +1,4 @@
-# Splunk + Fail2ban + Flooding – Blue Team Basics
+# Splunk + Fail2ban + Flooding - Blue Team Basics
 
 ![Focus](https://img.shields.io/badge/focus-blue%20team-blue)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
@@ -7,7 +7,7 @@
 
 ---
 
-## Splunk – The Big Brother Over Logs
+## Splunk - The Big Brother Over Logs
 
 - **SIEM system** (Security Information and Event Management)
 - Collects, analyzes, and correlates logs from different systems:
@@ -24,7 +24,7 @@ Set up a Splunk Free + Docker log collection stack → perfect for learning.
 
 ---
 
-## Fail2ban – The Automatic Door Closer
+## Fail2ban - The Automatic Door Closer
 
 - Monitors logs → **BAN**s suspicious IPs based on rule sets
 - Classic use cases:
@@ -40,7 +40,7 @@ Try it in Tailscale / Docker environments too.
 
 ---
 
-## Flooding Attacks – Overload on the Front Line
+## Flooding Attacks - Overload on the Front Line
 
 - Goal: make services unavailable (DDoS, SYN flood, UDP flood)
 - They don't steal data → **they paralyze your network**
@@ -55,12 +55,12 @@ Monitor flood attacks with a local nmap stress test.
 
 ---
 
-## Next Steps – Defense in Depth
+## Next Steps - Defense in Depth
 
-1. **IDS/IPS deeper** – Suricata or Snort installation and rule learning
-2. **Brute-force + credential stuffing detection** – Splunk + Fail2ban integration
-3. **SIEM fine-tuning** – Splunk dashboard, custom alerts
-4. **Rate limiting and connection hardening** – iptables / pf / nginx WAF rules
+1. **IDS/IPS deeper** - Suricata or Snort installation and rule learning
+2. **Brute-force + credential stuffing detection** - Splunk + Fail2ban integration
+3. **SIEM fine-tuning** - Splunk dashboard, custom alerts
+4. **Rate limiting and connection hardening** - iptables / pf / nginx WAF rules
 5. **Project**: Mini-SOC in HomeLab → logging + alerting + automatic protection
 
 ---

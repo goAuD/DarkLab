@@ -1,6 +1,6 @@
 # Docker - The beginning 2025_06_11
 
-[![Join the TrustMindLab Discussions](https://img.shields.io/badge/💬_Join-TrustMindLab-blueviolet)](https://github.com/goAuD/MyHomeLab/discussions/1)
+[![Join the TrustMindLab Discussions](https://img.shields.io/badge/Join-TrustMindLab-blueviolet)](https://github.com/goAuD/MyHomeLab/discussions/1)
 <div class="badge-base LI-profile-badge" data-locale="hu_HU" data-size="medium" data-theme="light" data-type="VERTICAL" data-vanity="viktor-halupka-weiz" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://at.linkedin.com/in/viktor-halupka-weiz?trk=profile-badge">Viktor Halupka</a></div>
 
 ---
@@ -13,7 +13,7 @@ As part of the HomeLab, I used Docker containerization to host isolated, managea
 
 Installed Docker and WSL2 on Windows 11, but the WSL2 initially failed to start due to misconfigured .wslconfig.
 
-**🔨Fixing WSL `automount` Configuration**
+**Fixing WSL `automount` Configuration**
 
 > **Note:** `crossDistro = true` is **not** a valid key in the `[automount]` section, so WSL throws an unknown key error if you include it.
 
@@ -59,7 +59,7 @@ docker compose up -d
 
 ---
 
-## 🔨Solution
+## Solution
 
 ### To get Docker Desktop working properly again
 
@@ -87,13 +87,13 @@ Try moving Docker's WSL-related files and configuration (or the entire Docker in
 
 > **Note:** WSL2 boot speed improved: confirmed SSD is significantly faster than HDD when hosting the virtual disk.
 
-**💡Feel free to open an issue or contribute a better workaround if you've faced the same problem!**
+**Feel free to open an issue or contribute a better workaround if you've faced the same problem!**
 
 ---
 
 ## Common Docker Commands with Explanations
 
-> **It will come in handy someday🙂**
+> **It will come in handy someday**
 
 | Command                           | Description                                                                                 |
 | --------------------------------- | ------------------------------------------------------------------------------------------- |
