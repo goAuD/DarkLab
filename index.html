@@ -10,25 +10,212 @@
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧪</text></svg>">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css">
     <style>
+        /* ==================================================================
+           TrustMindLab — "Rack Unit" theme
+           A homelab run out of a rack, not a laptop: graphite panels,
+           silkscreen-mono headings, a status-LED accent system, patch-panel
+           sidebar. Signature: the pulsing status dot on page titles.
+           ================================================================== */
+
+        @font-face {
+            font-family: "JetBrains Mono";
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url("assets/fonts/jetbrains-mono-400.woff2") format("woff2");
+        }
+
+        @font-face {
+            font-family: "JetBrains Mono";
+            font-style: normal;
+            font-weight: 500;
+            font-display: swap;
+            src: url("assets/fonts/jetbrains-mono-500.woff2") format("woff2");
+        }
+
+        @font-face {
+            font-family: "JetBrains Mono";
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url("assets/fonts/jetbrains-mono-700.woff2") format("woff2");
+        }
+
+        @font-face {
+            font-family: "JetBrains Mono";
+            font-style: normal;
+            font-weight: 800;
+            font-display: swap;
+            src: url("assets/fonts/jetbrains-mono-800.woff2") format("woff2");
+        }
+
+        @font-face {
+            font-family: "IBM Plex Sans";
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url("assets/fonts/ibm-plex-sans-400.woff2") format("woff2");
+        }
+
+        @font-face {
+            font-family: "IBM Plex Sans";
+            font-style: normal;
+            font-weight: 500;
+            font-display: swap;
+            src: url("assets/fonts/ibm-plex-sans-500.woff2") format("woff2");
+        }
+
+        @font-face {
+            font-family: "IBM Plex Sans";
+            font-style: normal;
+            font-weight: 600;
+            font-display: swap;
+            src: url("assets/fonts/ibm-plex-sans-600.woff2") format("woff2");
+        }
+
+        @font-face {
+            font-family: "IBM Plex Sans";
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url("assets/fonts/ibm-plex-sans-700.woff2") format("woff2");
+        }
+
         :root {
-            --theme-color: #58a6ff;
-            --base-background-color: #0d1117;
-            --cover-background-color: #0d1117;
-            --sidebar-background: #161b22;
-            --sidebar-nav-link-color: #c9d1d9;
-            --sidebar-nav-link-color--active: #58a6ff;
-            --link-color: #58a6ff;
-            --code-theme-background: #161b22;
-            --notice-tip-border-color: #3fb950;
-            --notice-important-border-color: #f0883e;
+            /* Cool graphite monochrome ramp - background, sidebar, code
+               panels and table stripes all derive from these two dials. */
+            --mono-hue: 209;
+            --mono-saturation: 24%;
+
+            /* Status-amber: the primary interactive accent (links, active
+               nav) - one of three LED colors used across the page. */
+            --theme-hue: 38;
+            --theme-saturation: 72%;
+            --theme-lightness: 54%;
+
+            --base-color: #c9d3dd;
+            --base-font-family: "IBM Plex Sans", -apple-system, "Segoe UI", sans-serif;
+            --base-line-height: 1.65;
+
+            --heading-color: #e7edf3;
+            --heading-h2-border-color: #26313d;
+
+            --code-font-family: "JetBrains Mono", Consolas, Menlo, monospace;
+
+            --link-text-decoration: none;
+
+            --notice-tip-border-color: hsl(150, 45%, 48%);
+            --notice-tip-background: hsl(150, 22%, 15%);
+            --notice-important-border-color: hsl(38, 72%, 54%);
+            --notice-important-background: hsl(38, 30%, 15%);
+
+            --table-row-odd-background: hsl(209, 24%, 15%);
+
+            /* LED status palette used directly by the custom rules below. */
+            --led-amber: hsl(38, 72%, 54%);
+            --led-green: hsl(150, 45%, 48%);
+            --led-blue: hsl(200, 60%, 55%);
+            --panel-line: hsl(209, 24%, 24%);
         }
 
         .cover {
-            background: linear-gradient(135deg, #0d1117 0%, #161b22 100%) !important;
+            background: linear-gradient(160deg, #12161c 0%, #0b0e12 100%) !important;
+        }
+
+        .cover::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(ellipse at 50% 35%, rgba(76, 141, 174, 0.12), transparent 60%),
+                repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.015) 0px, rgba(255, 255, 255, 0.015) 1px, transparent 1px, transparent 3px);
+            pointer-events: none;
         }
 
         .cover h1 {
-            color: #58a6ff !important;
+            font-family: "JetBrains Mono", Consolas, monospace !important;
+            font-weight: 800 !important;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #e7edf3 !important;
+            border-bottom: 3px solid var(--led-amber);
+            padding-bottom: 0.3em;
+            display: inline-block;
+        }
+
+        .cover blockquote {
+            font-family: "JetBrains Mono", Consolas, monospace;
+            color: var(--led-blue) !important;
+        }
+
+        /* ---- Headings: equipment silkscreen labels + status dot -------- */
+
+        .markdown-section h1,
+        .markdown-section h2,
+        .sidebar-name {
+            font-family: "JetBrains Mono", Consolas, monospace;
+        }
+
+        .markdown-section h1 {
+            position: relative;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 1.6em;
+            padding-left: 1.1em;
+        }
+
+        .markdown-section h1::before {
+            content: "";
+            position: absolute;
+            left: 0.15em;
+            top: 0.45em;
+            width: 0.5em;
+            height: 0.5em;
+            border-radius: 50%;
+            background: var(--led-green);
+            box-shadow: 0 0 6px 1px var(--led-green);
+            animation: status-pulse 2.4s ease-in-out infinite;
+        }
+
+        .markdown-section h2 {
+            font-weight: 700;
+            font-size: 1.15em;
+            letter-spacing: 0.03em;
+        }
+
+        @keyframes status-pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.45; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .markdown-section h1::before {
+                animation: none;
+            }
+        }
+
+        /* ---- Sidebar: patch-panel index --------------------------------- */
+
+        .sidebar-nav li.active > a {
+            position: relative;
+        }
+
+        .sidebar-nav li.active > a::before {
+            content: "";
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--led-green);
+            box-shadow: 0 0 4px 1px var(--led-green);
+            margin-right: 0.5em;
+        }
+
+        .sidebar-nav strong {
+            font-family: "JetBrains Mono", Consolas, monospace;
+            font-size: 0.7em;
+            letter-spacing: 0.08em;
+            border-bottom: 1px solid var(--panel-line);
         }
 
         /* Mobile responsive fixes */
@@ -37,31 +224,31 @@
                 padding: 15px;
                 max-width: 100%;
             }
-            
+
             .markdown-section table {
                 display: block;
                 overflow-x: auto;
                 white-space: nowrap;
             }
-            
+
             .markdown-section pre {
                 overflow-x: auto;
                 padding: 10px;
             }
-            
+
             .markdown-section code {
                 word-break: break-word;
             }
-            
+
             .markdown-section img {
                 max-width: 100%;
                 height: auto;
             }
-            
+
             .sidebar {
                 padding-top: 20px;
             }
-            
+
             body {
                 font-size: 14px;
                 line-height: 1.6;
